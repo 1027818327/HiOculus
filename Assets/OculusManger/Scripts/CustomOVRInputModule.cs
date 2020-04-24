@@ -14,13 +14,13 @@ namespace Oculus
 
             if (OVRInput.GetActiveController() == OVRInput.Controller.LTouch)
             {
-                pressed = Input.GetKeyDown(gazeClickKey) || (OVRInput.Get(OVRInput.Button.PrimaryHandTrigger) && OVRInput.Get(OVRInput.RawButton.LThumbstick));
-                released = Input.GetKeyUp(gazeClickKey) || (!OVRInput.Get(OVRInput.Button.PrimaryHandTrigger) && !OVRInput.Get(OVRInput.RawButton.LThumbstick));
+                pressed = Input.GetKeyDown(gazeClickKey) || OVRInput.GetDown(OVRInput.Button.Three);
+                released = Input.GetKeyUp(gazeClickKey) || OVRInput.GetUp(OVRInput.Button.Three);
             }
             else 
             {
-                pressed = Input.GetKeyDown(gazeClickKey) || (OVRInput.Get(OVRInput.Button.SecondaryHandTrigger) && OVRInput.Get(OVRInput.RawButton.RThumbstick));
-                released = Input.GetKeyUp(gazeClickKey) || (!OVRInput.Get(OVRInput.Button.SecondaryHandTrigger) && !OVRInput.Get(OVRInput.RawButton.RThumbstick));
+                pressed = Input.GetKeyDown(gazeClickKey) || OVRInput.GetDown(OVRInput.Button.One);
+                released = Input.GetKeyUp(gazeClickKey) || OVRInput.GetUp(OVRInput.Button.One);
             }
             
 #if UNITY_ANDROID && !UNITY_EDITOR

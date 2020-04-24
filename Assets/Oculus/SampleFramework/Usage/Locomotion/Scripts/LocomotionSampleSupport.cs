@@ -44,7 +44,8 @@ public class LocomotionSampleSupport : MonoBehaviour
         {
             Debug.LogError("Need EventSystem");
         }
-		SetupTwoStickTeleport();
+        //SetupTwoStickTeleport();
+        SetupNodeTeleport();
 
         // SAMPLE-ONLY HACK:
         // Due to restrictions on how Unity project settings work, we just hackily set up default
