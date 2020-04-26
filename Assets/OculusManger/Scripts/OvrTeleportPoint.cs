@@ -10,7 +10,11 @@ namespace Oculus
         private Transform palyerTrans;
         void Start()
         {
-            
+            if (OvrToClient.instance != null)
+            {
+                OvrToClient.instance.locomotionTeleport.Teleported -= Teleported;
+                OvrToClient.instance.locomotionTeleport.Teleported += Teleported;
+            }
         }
 
 #if UNITY_EDITOR
@@ -21,7 +25,10 @@ namespace Oculus
 #endif
         private void OnEnable()
         {
-            OvrToClient.instance.locomotionTeleport.Teleported += Teleported;
+            if (OvrToClient.instance != null) 
+            {
+                OvrToClient.instance.locomotionTeleport.Teleported += Teleported;
+            }
         }
 
         private void OnDisable()

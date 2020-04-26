@@ -222,6 +222,7 @@ public class OVRGrabber : MonoBehaviour
     {
         if ((m_prevFlex >= grabBegin) && (prevFlex < grabBegin))
         {
+            /*
             bool checkOtherKey = false;
             if (m_controller == OVRInput.Controller.RTouch)
             {
@@ -236,8 +237,7 @@ public class OVRGrabber : MonoBehaviour
             {
                 return;
             }
-
-
+            */
             GrabBegin();
         }
         else if ((m_prevFlex <= grabEnd) && (prevFlex > grabEnd))
