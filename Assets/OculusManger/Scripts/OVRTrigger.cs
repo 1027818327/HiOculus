@@ -6,8 +6,16 @@ public class OVRTrigger : MonoBehaviour
     //层级
     public LayerMask layerMasks;
 
+    public Collider mCharacterCollider;
+
     private void OnTriggerEnter(Collider other)
     {
+        if (other == mCharacterCollider) 
+        {
+            // 忽略自身
+            return;
+        }
+
         int target = (int)Mathf.Pow(2, other.gameObject.layer);
 
         if ((layerMasks.value & target) == target)
@@ -18,6 +26,12 @@ public class OVRTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (other == mCharacterCollider)
+        {
+            // 忽略自身
+            return;
+        }
+
         int target = (int)Mathf.Pow(2, other.gameObject.layer);
 
         if ((layerMasks.value & target) == target)

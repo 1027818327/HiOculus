@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 3351962290457900367}
   - component: {fileID: 3351962290457900360}
   m_Layer: 0
-  m_Name: Button (1)
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -194,6 +194,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b11d96751b875e64f868869f2caaa6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mHoverBtn: {fileID: 3351962290457900366}
+  mOutline: {fileID: 3351962290457900360}
 --- !u!114 &3351962290457900360
 MonoBehaviour:
   m_ObjectHideFlags: 0
