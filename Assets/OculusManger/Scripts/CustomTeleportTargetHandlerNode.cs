@@ -19,7 +19,7 @@ namespace Oculus
 			{
 				return false;
 			}
-			TeleportPoint tp = AimData.TargetHitInfo.collider.gameObject.GetComponent<TeleportPoint>();
+			OvrTeleportPoint tp = AimData.TargetHitInfo.collider.gameObject.GetComponent<OvrTeleportPoint>();
 			if (tp == null)
 			{
 				// If the ray hits the world, consider it valid and update the aimRay to the end point.

@@ -1,23 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class OVRTrigger : MonoBehaviour
 {
-    //by zrp
-    //public GameObject eyeObject;
-    OVRScreenFade ovrScreenFade;
+    public OVRScreenFade ovrScreenFade;
     //层级
     public LayerMask layerMasks;
-    private void Awake()
-    {
-        //ovrScreenFade = eyeObject.GetComponent<OVRScreenFade>();
-        ovrScreenFade = GetComponent<OVRScreenFade>();
-    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if ((layerMasks.value & (int)Mathf.Pow(2, other.gameObject.layer)) == (int)Mathf.Pow(2, other.gameObject.layer))
+        int target = (int)Mathf.Pow(2, other.gameObject.layer);
+
+        if ((layerMasks.value & target) == target)
         {
             ovrScreenFade.SetFadeLevel(1);
         }
@@ -25,7 +18,9 @@ public class OVRTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if ((layerMasks.value & (int)Mathf.Pow(2, other.gameObject.layer)) == (int)Mathf.Pow(2, other.gameObject.layer))
+        int target = (int)Mathf.Pow(2, other.gameObject.layer);
+
+        if ((layerMasks.value & target) == target)
         {
             ovrScreenFade.SetFadeLevel(0);
         }

@@ -4,9 +4,7 @@ namespace Oculus
 {
     public class OvrTeleportPoint : MonoBehaviour
     {
-        [SerializeField]
-        private TeleportPoint point;
-
+        public Transform destTransform;
         private Transform palyerTrans;
         void Start()
         {
@@ -17,12 +15,6 @@ namespace Oculus
             }
         }
 
-#if UNITY_EDITOR
-        private void OnValidate()
-        {
-            point = GetComponent<TeleportPoint>();
-        }
-#endif
         private void OnEnable()
         {
             if (OvrToClient.instance != null) 
@@ -38,8 +30,10 @@ namespace Oculus
 
         void Teleported(Transform playTrans, Vector3 pos, Quaternion q) 
         {
-            float distance = Mathf.Abs(Vector3.SqrMagnitude(point.destTransform.position) - Vector3.SqrMagnitude(pos));
-            if (distance <= 1f) 
+            float distance = Mathf.Abs(Vector3.SqrMagnitude(destTransform.position) - Vector3.SqrMagnitude(pos));
+            //LogManager.instance.DebugLog("传送距离差2是" + distance);
+
+            if (distance < 2f) 
             {
                 LogManager.instance.DebugLog("传送距离差是" + distance);
                 palyerTrans = playTrans;
@@ -49,7 +43,7 @@ namespace Oculus
 
         private void DelaySetPos() 
         {
-            palyerTrans.rotation = point.destTransform.rotation;
+            palyerTrans.rotation = destTransform.rotation;
         }
     }
 }
