@@ -1,50 +1,61 @@
 ﻿using ARdEZ.Render;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace Common 
+namespace Common
 {
     public class ButtonEffect : MonoBehaviour
     {
-        private Outline mOutLine; 
+        public HoverButton mHoverBtn;
+        public Outline mOutline; 
 
         void Start() 
         {
-            HoverButton hb = GetComponent<HoverButton>();
-            hb.onButtonEnter.AddListener(OnButtonEnter);
-            hb.onButtonExit.AddListener(OnButtonExit);
-            hb.onButtonDown.AddListener(OnButtonDown);
-            hb.onButtonUp.AddListener(OnButtonUp);
+            if (mHoverBtn == null) 
+            {
+                mHoverBtn = GetComponent<HoverButton>();
+            }
+            mHoverBtn.onButtonEnter.AddListener(OnButtonEnter);
+            mHoverBtn.onButtonExit.AddListener(OnButtonExit);
+            mHoverBtn.onButtonDown.AddListener(OnButtonDown);
+            mHoverBtn.onButtonUp.AddListener(OnButtonUp);
 
-            mOutLine = GetComponent<Outline>();
+            if (mOutline == null) 
+            {
+                mOutline = GetComponent<Outline>();
+            }
         }
 
+        [ContextMenu("Set Component")]
+        private void FindComponentInEditor() 
+        {
+            mHoverBtn = GetComponent<HoverButton>();
+            mOutline = GetComponent<Outline>();
+        }
 
         public void OnButtonEnter()
         {
-            mOutLine.OutlineColor = Color.yellow;
-            mOutLine.enabled = true;
+            mOutline.OutlineColor = Color.yellow;
+            mOutline.enabled = true;
         }
 
         public void OnButtonExit()
         {
-            mOutLine.enabled = false;
+            mOutline.enabled = false;
         }
 
         public void OnButtonUp()
         {
-            mOutLine.enabled = false;
+            mOutline.enabled = false;
             /*
-            mOutLine.OutlineColor = Color.yellow;
-            mOutLine.enabled = true;
+            mOutline.OutlineColor = Color.yellow;
+            mOutline.enabled = true;
             */
         }
 
         public void OnButtonDown()
         {
-            mOutLine.OutlineColor = Color.cyan;
-            mOutLine.enabled = true;
+            mOutline.OutlineColor = Color.cyan;
+            mOutline.enabled = true;
         }
     }
 }

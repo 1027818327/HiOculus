@@ -1,5 +1,4 @@
-﻿using OculusSampleFramework;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Oculus
 {
@@ -13,6 +12,13 @@ namespace Oculus
         void Awake()
         {
             instance = this;
+        }
+
+        void Start() 
+        {
+#if UNITY_EDITOR
+            gameObject.AddComponent<Common.MosueKeyboardUtils>();
+#endif
         }
     }
 }

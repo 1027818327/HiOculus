@@ -43,25 +43,48 @@ namespace Oculus
         protected override void Start()
         {
             base.Start();
-            mOutline = GetComponent<Outline>();
+            if (mOutline == null) 
+            {
+                mOutline = GetComponent<Outline>();
+            }
             RefreshCrosshair();
         }
 
         void RefreshCrosshair()
         {
-            if (isGrabbed || !InRange) mOutline.OutlineColor = Color.white;
-            else if (Targeted) mOutline.OutlineColor = OvrToClient.instance.grabManager.OutlineColorHighlighted;
-            else mOutline.OutlineColor = OvrToClient.instance.grabManager.OutlineColorInRange;
+            if (isGrabbed || !InRange)
+            {
+                mOutline.OutlineColor = Color.white;
+                mOutline.enabled = false;
+            }
+            else if (Targeted)
+            {
+                mOutline.OutlineColor = OvrToClient.instance.grabManager.OutlineColorHighlighted;
+                mOutline.enabled = true;
+            }
+            else 
+            {
+                mOutline.OutlineColor = OvrToClient.instance.grabManager.OutlineColorInRange;
+                mOutline.enabled = true;
+            }
         }
 
         public void SetColor(Color focusColor)
         {
             mOutline.OutlineColor = focusColor;
+            mOutline.enabled = true;
         }
 
         public void ClearColor()
         {
             mOutline.OutlineColor = Color.white;
+            mOutline.enabled = false;
+        }
+
+        [ContextMenu("Set Component")]
+        private void FindComponentInEditor()
+        {
+            mOutline = GetComponent<Outline>();
         }
     }
 }
