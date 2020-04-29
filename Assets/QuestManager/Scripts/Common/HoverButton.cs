@@ -117,7 +117,10 @@ namespace Common
         {
             if (lastHoveredHand == null && other.gameObject.GetComponent<PhysicPinch>() != null)
             {
-                LogManager.instance.DebugLog("HoverButton Enter: " + other.name);
+                if (LogManager.instance != null) 
+                {
+                    LogManager.instance.DebugLog("HoverButton Enter: " + other.name);
+                }
 
                 lastHoveredHand = other.transform;
 
@@ -132,7 +135,10 @@ namespace Common
         {
             if (lastHoveredHand != null && lastHoveredHand == other.transform)
             {
-                LogManager.instance.DebugLog("HoverButton Exit: " + other.name);
+                if (LogManager.instance != null) 
+                {
+                    LogManager.instance.DebugLog("HoverButton Exit: " + other.name);
+                }
 
                 if (onButtonExit != null)
                 {

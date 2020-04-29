@@ -31,11 +31,10 @@ namespace Quest
         void Teleported(Transform playTrans, Vector3 pos, Quaternion q) 
         {
             float distance = Mathf.Abs(Vector3.SqrMagnitude(destTransform.position) - Vector3.SqrMagnitude(pos));
-            //LogManager.instance.DebugLog("传送距离差2是" + distance);
 
             if (distance < 2f) 
             {
-                LogManager.instance.DebugLog("传送距离差是" + distance);
+                //LogManager.instance.DebugLog("传送距离差是" + distance);
                 palyerTrans = playTrans;
                 Invoke("DelaySetPos", 0.1f);
             }

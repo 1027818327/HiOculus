@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using ARdEZ;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -28,7 +29,10 @@ namespace Quest
             enterObjs.Add(other);
 
             isTouch = true;
-            LogManager.instance.DebugLog("OnTriggerEnter " + other.name);
+            if (LogManager.instance != null) 
+            {
+                LogManager.instance.DebugLog("OnTriggerEnter " + other.name);
+            }
         }
 
         private void OnTriggerExit(Collider other)
@@ -37,7 +41,10 @@ namespace Quest
             isTouch = false;
             mState = HandState.Release;
 
-            LogManager.instance.DebugLog("OnTriggerExit " + other.name);
+            if (LogManager.instance != null) 
+            {
+                LogManager.instance.DebugLog("OnTriggerExit " + other.name);
+            }
         }
 
         private void OnTriggerStay(Collider other)
@@ -52,12 +59,18 @@ namespace Quest
             if (frameState == PointerEventData.FramePressState.Pressed)
             {
                 mState = HandState.Press;
-                LogManager.instance.DebugLog("press " + other.name);
+                if (LogManager.instance != null) 
+                {
+                    LogManager.instance.DebugLog("press " + other.name);
+                }
             }
             if (frameState == PointerEventData.FramePressState.Released)
             {
                 mState = HandState.Release;
-                LogManager.instance.DebugLog("release " + other.name);
+                if (LogManager.instance != null) 
+                {
+                    LogManager.instance.DebugLog("release " + other.name);
+                }
             }
         }
 

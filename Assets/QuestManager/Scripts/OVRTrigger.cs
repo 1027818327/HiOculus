@@ -22,6 +22,8 @@ namespace Quest
 
             if ((layerMasks.value & target) == target)
             {
+                Debug.Log("头碰撞到了" + other.name);
+
                 ovrScreenFade.SetFadeLevel(1);
             }
         }

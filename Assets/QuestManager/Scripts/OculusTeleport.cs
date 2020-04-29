@@ -92,6 +92,18 @@ namespace Quest
             linePointer.SetActive(true);
         }
 
+        public void ControlTeleport(bool on) 
+        {
+            teleportInputHandlerTouch.enabled = on;
+            TeleportController.enabled = on;
+
+            if (!on) 
+            {
+                TeleportController.ForceCancleTeleport();
+            }
+            enabled = on;
+        }
+
         void Update() 
         {
             bool b = OVRInput.Get(OVRInput.Button.One) || OVRInput.Get(OVRInput.Button.Two) || OVRInput.Get(OVRInput.Button.Three) || OVRInput.Get(OVRInput.Button.Four) || OVRInput.Get(OVRInput.Button.PrimaryHandTrigger) || OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger) || OVRInput.Get(OVRInput.Button.SecondaryHandTrigger) || OVRInput.Get(OVRInput.Button.Start);
