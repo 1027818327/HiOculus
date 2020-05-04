@@ -31,9 +31,10 @@ namespace Quest
 
         void Start() 
         {
+            ShowHand();
             ShowGamepad();
-            OpenTeleportBtnGuide();
-            OpenGrapBtnGuide();
+            //OpenTeleportBtnGuide();
+            //OpenGrapBtnGuide();
         }
 
 

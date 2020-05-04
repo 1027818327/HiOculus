@@ -23,6 +23,12 @@ namespace Quest
         [SerializeField]
         private TeleportInputHandlerTouch teleportInputHandlerTouch;
 
+        [SerializeField]
+        private TeleportAimHandler teleportAimHandler;
+
+        [SerializeField]
+        private TeleportTargetHandlerNode teleportTargetHandler;
+
         private LocomotionTeleport TeleportController
         {
             get
@@ -94,24 +100,43 @@ namespace Quest
 
         public void ControlTeleport(bool on) 
         {
-            teleportInputHandlerTouch.enabled = on;
-            TeleportController.enabled = on;
-
             if (!on) 
             {
-                TeleportController.ForceCancleTeleport();
+                TeleportController.CurrentIntention = LocomotionTeleport.TeleportIntentions.None;
+                locomotionTeleport.OnUpdateAimData(new LocomotionTeleport.AimData());
+                locomotionTeleport.OnUpdateTeleportDestination(false, null, null, null);
+                teleportInputHandlerTouch.StopAllCoroutines();
+                teleportTargetHandler.StopAllCoroutines();
             }
+            teleportInputHandlerTouch.enabled = on;
+            TeleportController.enabled = on;
+            if (locomotionTeleport.AimHandler == null)
+            {
+                locomotionTeleport.AimHandler = teleportAimHandler;
+            }
+
             enabled = on;
         }
 
         void Update() 
         {
             bool b = OVRInput.Get(OVRInput.Button.One) || OVRInput.Get(OVRInput.Button.Two) || OVRInput.Get(OVRInput.Button.Three) || OVRInput.Get(OVRInput.Button.Four) || OVRInput.Get(OVRInput.Button.PrimaryHandTrigger) || OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger) || OVRInput.Get(OVRInput.Button.SecondaryHandTrigger) || OVRInput.Get(OVRInput.Button.Start);
-            teleportInputHandlerTouch.enabled = !b;
-            TeleportController.enabled = !b;
+
             if (b)
             {
-                TeleportController.ForceCancleTeleport();
+                TeleportController.CurrentIntention = LocomotionTeleport.TeleportIntentions.None;
+                locomotionTeleport.OnUpdateAimData(new LocomotionTeleport.AimData());
+                locomotionTeleport.OnUpdateTeleportDestination(false, null, null, null);
+                teleportInputHandlerTouch.StopAllCoroutines();
+                teleportTargetHandler.StopAllCoroutines();
+            }
+            
+            teleportInputHandlerTouch.enabled = !b;
+            TeleportController.enabled = !b;
+
+            if (locomotionTeleport.AimHandler == null) 
+            {
+                locomotionTeleport.AimHandler = teleportAimHandler;
             }
         }
     }

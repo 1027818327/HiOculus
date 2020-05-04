@@ -856,13 +856,4 @@ public class LocomotionTeleport : MonoBehaviour
 
 		//LocomotionController.PlayerController.Teleported = true;
 	}
-
-	public void ForceCancleTeleport() 
-	{
-		CurrentIntention = LocomotionTeleport.TeleportIntentions.None;
-		if (ExitStateAim != null)
-		{
-			ExitStateAim();
-		}
-	}
 }
