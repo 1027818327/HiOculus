@@ -8838,6 +8838,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: OVR
       objectReference: {fileID: 0}
+    - target: {fileID: 7614077372009549197, guid: abeb0d007af30ac45ab35f7b66b3bffd,
+        type: 3}
+      propertyPath: mCharacterColliders.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7614077372009549197, guid: abeb0d007af30ac45ab35f7b66b3bffd,
+        type: 3}
+      propertyPath: mCharacterColliders.Array.data[0]
+      value: 
+      objectReference: {fileID: 4490296954301511378}
+    - target: {fileID: 7614077372009549197, guid: abeb0d007af30ac45ab35f7b66b3bffd,
+        type: 3}
+      propertyPath: mCharacterColliders.Array.data[1]
+      value: 
+      objectReference: {fileID: 4490296954301511377}
     - target: {fileID: 7614077372352504387, guid: abeb0d007af30ac45ab35f7b66b3bffd,
         type: 3}
       propertyPath: m_Mesh
@@ -8845,6 +8860,18 @@ PrefabInstance:
       objectReference: {fileID: 198016909}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abeb0d007af30ac45ab35f7b66b3bffd, type: 3}
+--- !u!135 &4490296954301511377 stripped
+SphereCollider:
+  m_CorrespondingSourceObject: {fileID: 7614077371989731547, guid: abeb0d007af30ac45ab35f7b66b3bffd,
+    type: 3}
+  m_PrefabInstance: {fileID: 4490296954301511376}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &4490296954301511378 stripped
+CapsuleCollider:
+  m_CorrespondingSourceObject: {fileID: 7614077371456728832, guid: abeb0d007af30ac45ab35f7b66b3bffd,
+    type: 3}
+  m_PrefabInstance: {fileID: 4490296954301511376}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4816224454021806660 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1677289343377947135, guid: abeb0d007af30ac45ab35f7b66b3bffd,
@@ -9037,7 +9064,7 @@ PrefabInstance:
     - target: {fileID: 7813689846952599427, guid: 5ab5b6195b4eb3547a74d85050ce8922,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00000013411045
+      value: 0.000031963216
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ab5b6195b4eb3547a74d85050ce8922, type: 3}

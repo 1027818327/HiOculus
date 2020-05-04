@@ -8,16 +8,18 @@ namespace Quest
         //层级
         public LayerMask layerMasks;
 
-        public Collider mCharacterCollider;
+        public Collider[] mCharacterColliders;
 
         private void OnTriggerEnter(Collider other)
         {
-            if (other == mCharacterCollider)
+            foreach (Collider collider in mCharacterColliders)
             {
-                // 忽略自身
-                return;
+                if (other == collider)
+                {
+                    // 忽略自身
+                    return;
+                }
             }
-
             int target = (int)Mathf.Pow(2, other.gameObject.layer);
 
             if ((layerMasks.value & target) == target)
@@ -30,10 +32,13 @@ namespace Quest
 
         private void OnTriggerExit(Collider other)
         {
-            if (other == mCharacterCollider)
+            foreach (Collider collider in mCharacterColliders)
             {
-                // 忽略自身
-                return;
+                if (other == collider)
+                {
+                    // 忽略自身
+                    return;
+                }
             }
 
             int target = (int)Mathf.Pow(2, other.gameObject.layer);

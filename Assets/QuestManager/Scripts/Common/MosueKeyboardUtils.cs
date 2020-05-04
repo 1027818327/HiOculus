@@ -40,30 +40,40 @@ namespace Common
             //w键前进  
             if (Input.GetKey(KeyCode.W))
             {
-                this.gameObject.transform.Translate(new Vector3(0, 0, speed * Time.deltaTime), this.gameObject.transform);
+                transform.localPosition += Vector3.forward * Time.deltaTime * speed;
+
+                //transform.Translate(Vector3.forward * Time.deltaTime * speed);
             }
-            //s键后退  
             if (Input.GetKey(KeyCode.S))
             {
-                this.gameObject.transform.Translate(new Vector3(0, 0, -1 * speed * Time.deltaTime), this.gameObject.transform);
+                transform.localPosition += Vector3.back * Time.deltaTime * speed;
+
+                //transform.Translate(Vector3.back * Time.deltaTime * speed);
             }
-            //a键后退  
             if (Input.GetKey(KeyCode.A))
             {
-                this.gameObject.transform.Translate(new Vector3(-1 * speed * Time.deltaTime, 0, 0), this.gameObject.transform);
+                transform.localPosition += Vector3.left * Time.deltaTime * speed;
+
+                //transform.Translate(Vector3.left * Time.deltaTime * speed);
             }
-            //d键后退  
             if (Input.GetKey(KeyCode.D))
             {
-                this.gameObject.transform.Translate(new Vector3(Time.deltaTime * speed, 0, 0), this.gameObject.transform);
+                transform.localPosition += Vector3.right * Time.deltaTime * speed;
+
+                //transform.Translate(Vector3.right * Time.deltaTime * speed);
             }
+
             if (Input.GetKey(KeyCode.UpArrow))
             {
-                this.gameObject.transform.Translate(new Vector3(0, Time.deltaTime * speed, 0), this.gameObject.transform);
+                transform.localPosition += Vector3.up * Time.deltaTime * speed;
+
+                //transform.Translate(Vector3.up * Time.deltaTime * speed);
             }
-            if (Input.GetKey(KeyCode.DownArrow))
+            else if (Input.GetKey(KeyCode.DownArrow))
             {
-                this.gameObject.transform.Translate(new Vector3(0, -1 * Time.deltaTime * speed, 0), this.gameObject.transform);
+                transform.localPosition += Vector3.down * Time.deltaTime * speed;
+
+                //transform.Translate(Vector3.down * Time.deltaTime * speed);
             }
 
             if (Input.GetMouseButton(1))
