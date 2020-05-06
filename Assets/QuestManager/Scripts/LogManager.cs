@@ -12,11 +12,14 @@ namespace Quest
 
         private StringBuilder stringBuilder = new StringBuilder();
 
+        void Awake() 
+        {
+            instance = this;
+        }
+
         // Start is called before the first frame update
         void Start()
         {
-            instance = this;
-
             bool handTrackingEnabled = OVRPlugin.GetHandTrackingEnabled();
             DebugLog("handTrackingEnabled: " + handTrackingEnabled);
             DebugLog("OVRPlugin.version: " + OVRPlugin.version);
