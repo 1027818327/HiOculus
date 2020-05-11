@@ -250,6 +250,9 @@ namespace OculusSampleFramework
                     continue;
                 }
 
+                Debug.Log("grabbable.isGrabbed="+ grabbable.isGrabbed);
+                Debug.Log("grabbable.allowOffhandGrab=" + grabbable.allowOffhandGrab);
+
                 for (int j = 0; j < grabbable.grabPoints.Length; ++j)
                 {
                     Collider grabbableCollider = grabbable.grabPoints[j];

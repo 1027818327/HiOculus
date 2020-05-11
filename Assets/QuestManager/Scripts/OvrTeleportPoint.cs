@@ -5,22 +5,11 @@ namespace Quest
     public class OvrTeleportPoint : MonoBehaviour
     {
         public Transform destTransform;
-        private Transform palyerTrans;
-        void Start()
-        {
-            if (OvrToClient.instance != null)
-            {
-                OvrToClient.instance.locomotionTeleport.Teleported -= Teleported;
-                OvrToClient.instance.locomotionTeleport.Teleported += Teleported;
-            }
-        }
+        private Transform playerTrans;
 
         private void OnEnable()
         {
-            if (OvrToClient.instance != null) 
-            {
-                OvrToClient.instance.locomotionTeleport.Teleported += Teleported;
-            }
+            OvrToClient.instance.locomotionTeleport.Teleported += Teleported;
         }
 
         private void OnDisable()
@@ -34,15 +23,18 @@ namespace Quest
 
             if (distance < 2f) 
             {
-                //LogManager.instance.DebugLog("传送距离差是" + distance);
-                palyerTrans = playTrans;
+                LogManager.instance.DebugLog("传送距离差是" + distance + gameObject.name);
+                LogManager.instance.DebugLog("目标点是" + destTransform.position);
+                LogManager.instance.DebugLog("sdk传送点" + pos);
+
+                playerTrans = playTrans;
                 Invoke("DelaySetPos", 0.1f);
             }
         }
 
         private void DelaySetPos() 
         {
-            palyerTrans.rotation = destTransform.rotation;
+            playerTrans.rotation = destTransform.rotation;
         }
     }
 }

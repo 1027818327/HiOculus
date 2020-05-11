@@ -32,6 +32,8 @@ namespace Quest
             string tempText = string.Format("{0}: {1}\n", DateTime.Now.ToString("HH:mm:ss:ffff"), log);
             stringBuilder.Append(tempText);
 
+            Debug.Log(log);
+
             RefreshView();
         }
 

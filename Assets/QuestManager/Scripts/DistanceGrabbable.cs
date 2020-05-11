@@ -10,6 +10,7 @@ language governing permissions and limitations under the license.
 ************************************************************************************/
 
 using ARdEZ.Render;
+using OVRTouchSample;
 using TMPro;
 using UnityEngine;
 
@@ -61,7 +62,7 @@ namespace Quest
             RefreshCrosshair();
         }
 
-        void RefreshCrosshair()
+        public void RefreshCrosshair()
         {
             if (isGrabbed || !InRange)
             {
@@ -98,8 +99,44 @@ namespace Quest
             mOutline = GetComponent<Outline>();
         }
 
+        public override void GrabBegin(OVRGrabber hand, Collider grabPoint)
+        {
+            if (hand.grabbedObject != null && !hand.grabbedObject.allowOffhandGrab) 
+            {
+                return;
+            }
+
+            base.GrabBegin(hand, grabPoint);
+            string handName = hand.transform.parent.name;
+
+            if (handName.StartsWith("LeftHand"))
+            {
+                LogManager.instance.DebugLog("当前被左手抓取");
+            }
+            else
+            {
+                LogManager.instance.DebugLog("当前被右手抓取");
+            }
+        }
+
         public override void GrabEnd(Vector3 linearVelocity, Vector3 angularVelocity)
         {
+            if (m_grabbedBy == null) 
+            {
+                return;
+            }
+
+            string handName = m_grabbedBy.transform.parent.name;
+
+            if (handName.StartsWith("LeftHand"))
+            {
+                LogManager.instance.DebugLog("当前被左手丢弃");
+            }
+            else
+            {
+                LogManager.instance.DebugLog("当前被右手丢弃");
+            }
+
             base.GrabEnd(linearVelocity, angularVelocity);
             if (!grabEndEnable) 
             {

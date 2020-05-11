@@ -155,6 +155,14 @@ namespace Quest
                     }
                 }
             }
+
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.GetDown(OVRInput.Button.SecondaryIndexTrigger)) 
+            {
+                if (m_target != null) 
+                {
+                    LogManager.instance.DebugLog("点击手柄扳机键" + m_target.gameObject);
+                }
+            }
         }
 
         protected override void GrabBegin()
@@ -207,7 +215,7 @@ namespace Quest
                         m_grabbedObjectRotOff = m_grabbedObj.snapOffset.rotation * m_grabbedObjectRotOff;
                     }
                 }
-
+                LogManager.instance.DebugLog("GrabBegin obj is " + m_grabbedObj.name);
             }
         }
 
@@ -218,7 +226,13 @@ namespace Quest
                 return;
             }
 
+            if (m_targetCollider == null) 
+            {
+                return;
+            }
+
             Rigidbody grabbedRigidbody = m_grabbedObj.grabbedRigidbody;
+
             Vector3 grabbablePosition = pos + rot * m_grabbedObjectPosOff;
             Quaternion grabbableRotation = rot * m_grabbedObjectRotOff;
 
@@ -263,7 +277,7 @@ namespace Quest
             foreach (OVRGrabbable cg in m_grabCandidates.Keys)
             {
                 DistanceGrabbable grabbable = cg as DistanceGrabbable;
-                bool canGrab = grabbable != null && grabbable.InRange && !(grabbable.isGrabbed && !grabbable.allowOffhandGrab);
+                bool canGrab = grabbable != null && grabbable.InRange && !grabbable.isGrabbed;// && grabbable.allowOffhandGrab;
                 if (canGrab && m_grabObjectsInLayer >= 0) canGrab = grabbable.gameObject.layer == m_grabObjectsInLayer;
                 if (!canGrab)
                 {
