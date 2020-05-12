@@ -5097,7 +5097,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6165506344572896977}
   - component: {fileID: 6165506344572896982}
-  - component: {fileID: 6165506344572896983}
+  - component: {fileID: 855033157815239218}
   - component: {fileID: 6165506344572896976}
   m_Layer: 0
   m_Name: DistanceGrabHandLeftTransparent
@@ -5139,7 +5139,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6165506344572896983
+--- !u!114 &855033157815239218
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5148,12 +5148,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6165506344572896978}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79b7e65854ace8f44b05c52c6e824354, type: 3}
+  m_Script: {fileID: 11500000, guid: a07234f43c2d9134bb8b08d8053ec63f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_controller: 1
-  m_animator: {fileID: 4490296956076777255}
-  m_defaultGrabPose: {fileID: 11437176, guid: 85f09c356592d59438e44d171beb94ec, type: 3}
+  m_animator: {fileID: 7987839656235344464}
+  m_defaultGrabPose: {fileID: 4472643134303575212, guid: 85f09c356592d59438e44d171beb94ec,
+    type: 3}
 --- !u!114 &6165506344572896976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5195,7 +5196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6165506344712912744}
   - component: {fileID: 6165506344712912749}
-  - component: {fileID: 6165506344712912750}
+  - component: {fileID: 6860553792088234399}
   - component: {fileID: 6165506344712912751}
   m_Layer: 2
   m_Name: DistanceGrabHandRightTransparent
@@ -5237,7 +5238,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6165506344712912750
+--- !u!114 &6860553792088234399
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5246,12 +5247,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6165506344712912745}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79b7e65854ace8f44b05c52c6e824354, type: 3}
+  m_Script: {fileID: 11500000, guid: a07234f43c2d9134bb8b08d8053ec63f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_controller: 2
-  m_animator: {fileID: 4490296954344395857}
-  m_defaultGrabPose: {fileID: 11437176, guid: 85f09c356592d59438e44d171beb94ec, type: 3}
+  m_animator: {fileID: 7987839656235344464}
+  m_defaultGrabPose: {fileID: 4472643134303575212, guid: 85f09c356592d59438e44d171beb94ec,
+    type: 3}
 --- !u!114 &6165506344712912751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7869,7 +7871,7 @@ GameObject:
   - component: {fileID: 7614077370569419349}
   - component: {fileID: 7614077370569419347}
   - component: {fileID: 7614077371473863575}
-  - component: {fileID: 7614077370569419346}
+  - component: {fileID: 4464281651190008616}
   m_Layer: 0
   m_Name: CenterEyeAnchor
   m_TagString: MainCamera
@@ -7943,7 +7945,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &7614077370569419346
+--- !u!114 &4464281651190008616
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7952,11 +7954,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7614077370569419348}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df8e1d778abf442e4bec449c360e9e1c, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d15767045573ae4c977980e6d72c77f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   fadeTime: 1
-  fadeColor: {r: 0.01, g: 0.01, b: 0.01, a: 1}
+  fadeColor: {r: 0.6901961, g: 0.49803922, b: 0.33333334, a: 1}
   fadeOnStart: 1
   renderQueue: 5000
 --- !u!1 &7614077370582507066
@@ -8152,7 +8154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7614077371010844114}
   - component: {fileID: 7614077371010844113}
-  - component: {fileID: 7614077371010844112}
+  - component: {fileID: 3143503303988441858}
   - component: {fileID: 7614077371010844115}
   m_Layer: 0
   m_Name: DistanceGrabHandLeft
@@ -8194,7 +8196,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7614077371010844112
+--- !u!114 &3143503303988441858
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8203,12 +8205,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7614077371010844117}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79b7e65854ace8f44b05c52c6e824354, type: 3}
+  m_Script: {fileID: 11500000, guid: a07234f43c2d9134bb8b08d8053ec63f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_controller: 1
-  m_animator: {fileID: 7987839658000230694}
-  m_defaultGrabPose: {fileID: 11437176, guid: 85f09c356592d59438e44d171beb94ec, type: 3}
+  m_animator: {fileID: 7987839656235344464}
+  m_defaultGrabPose: {fileID: 4472643134303575212, guid: 85f09c356592d59438e44d171beb94ec,
+    type: 3}
 --- !u!114 &7614077371010844115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8250,7 +8253,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7614077371153446888}
   - component: {fileID: 7614077371153446887}
-  - component: {fileID: 7614077371153446886}
+  - component: {fileID: 1911479144123265442}
   - component: {fileID: 7614077371153446889}
   m_Layer: 2
   m_Name: DistanceGrabHandRight
@@ -8292,7 +8295,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7614077371153446886
+--- !u!114 &1911479144123265442
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8301,12 +8304,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7614077371153446891}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79b7e65854ace8f44b05c52c6e824354, type: 3}
+  m_Script: {fileID: 11500000, guid: a07234f43c2d9134bb8b08d8053ec63f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_controller: 2
   m_animator: {fileID: 7987839656235344464}
-  m_defaultGrabPose: {fileID: 11437176, guid: 85f09c356592d59438e44d171beb94ec, type: 3}
+  m_defaultGrabPose: {fileID: 4472643134303575212, guid: 85f09c356592d59438e44d171beb94ec,
+    type: 3}
 --- !u!114 &7614077371153446889
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8968,7 +8972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92840d2751d861347aa1d978cda95880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ovrScreenFade: {fileID: 7614077370569419346}
+  ovrScreenFade: {fileID: 0}
   layerMasks:
     serializedVersion: 2
     m_Bits: 39
