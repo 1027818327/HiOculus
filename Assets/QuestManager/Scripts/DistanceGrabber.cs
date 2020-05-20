@@ -167,6 +167,11 @@ namespace Quest
 
         protected override void GrabBegin()
         {
+            if (m_target != null && !m_target.allowOffhandGrab)
+            {
+                return;
+            }
+
             DistanceGrabbable closestGrabbable = m_target;
             Collider closestGrabbableCollider = m_targetCollider;
 
@@ -226,7 +231,7 @@ namespace Quest
                 return;
             }
 
-            if (m_targetCollider == null) 
+            if (!m_grabbedObj.allowOffhandGrab) 
             {
                 return;
             }

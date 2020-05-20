@@ -76,6 +76,7 @@ namespace Quest
 					LocomotionTeleport.DoTeleport();
 				}
 				float fadeLevel = FadeLevels.Evaluate(elapsedTime / TransitionDuration);
+				mScreenFade.showColor = mScreenFade.teleportFadeColor;
 				mScreenFade.SetFadeLevel(fadeLevel);
 			}
 

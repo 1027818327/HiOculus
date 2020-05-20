@@ -8972,13 +8972,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92840d2751d861347aa1d978cda95880, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ovrScreenFade: {fileID: 0}
+  ovrScreenFade: {fileID: 4464281651190008616}
   layerMasks:
     serializedVersion: 2
     m_Bits: 39
   mCharacterColliders:
   - {fileID: 7614077371456728832}
   - {fileID: 7614077371989731547}
+  - {fileID: 4490296954224098301}
+  - {fileID: 7987839656216710652}
+  - {fileID: 7987839657282492077}
+  - {fileID: 7987839657116123096}
 --- !u!65 &7614077372009549196
 BoxCollider:
   m_ObjectHideFlags: 0

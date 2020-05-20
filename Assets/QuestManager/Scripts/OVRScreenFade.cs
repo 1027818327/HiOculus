@@ -16,6 +16,7 @@ permissions and limitations under the License.
 
 using UnityEngine;
 using System.Collections; // required for Coroutines
+using System;
 
 namespace Quest 
 {
@@ -29,6 +30,11 @@ namespace Quest
 
 		[Tooltip("Screen color at maximum fade")]
 		public Color fadeColor = new Color(0.01f, 0.01f, 0.01f, 1.0f);
+
+		public Color teleportFadeColor = new Color(0.01f, 0.01f, 0.01f, 1.0f);
+
+		[NonSerialized]
+		public Color showColor;
 
 		public bool fadeOnStart = true;
 
@@ -112,6 +118,7 @@ namespace Quest
 
 			if (fadeOnStart)
 			{
+				showColor = teleportFadeColor;
 				StartCoroutine(Fade(1, 0));
 			}
 		}
@@ -195,7 +202,7 @@ namespace Quest
 		/// </summary>
 		private void SetMaterialAlpha()
 		{
-			Color color = fadeColor;
+			Color color = showColor;
 			color.a = Mathf.Max(currentAlpha, uiFadeAlpha);
 			isFading = color.a > 0;
 			if (fadeMaterial != null)

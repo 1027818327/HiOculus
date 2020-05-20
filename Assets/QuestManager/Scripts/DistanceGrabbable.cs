@@ -101,7 +101,7 @@ namespace Quest
 
         public override void GrabBegin(OVRGrabber hand, Collider grabPoint)
         {
-            if (hand.grabbedObject != null && !hand.grabbedObject.allowOffhandGrab) 
+            if (hand.grabbedObject == null || !hand.grabbedObject.allowOffhandGrab)
             {
                 return;
             }
@@ -121,7 +121,7 @@ namespace Quest
 
         public override void GrabEnd(Vector3 linearVelocity, Vector3 angularVelocity)
         {
-            if (m_grabbedBy == null) 
+            if (m_grabbedBy == null)
             {
                 return;
             }

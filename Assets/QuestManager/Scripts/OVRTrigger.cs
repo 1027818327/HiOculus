@@ -26,6 +26,7 @@ namespace Quest
             {
                 Debug.Log("头碰撞到了" + other.name);
 
+                ovrScreenFade.showColor = ovrScreenFade.fadeColor;
                 ovrScreenFade.SetFadeLevel(1);
             }
         }
