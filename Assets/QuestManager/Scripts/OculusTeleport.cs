@@ -65,10 +65,11 @@ namespace Quest
         void SetupTwoStickTeleport()
         {
             TeleportController.enabled = true;
-            lc.PlayerController.RotationEitherThumbstick = false;
 
-            TeleportController.EnableRotation(false, false, false, false);
+            TeleportController.EnableRotation(true, false, false, true);
             TeleportController.EnableMovement(false, false, false, false);
+
+            lc.PlayerController.RotationEitherThumbstick = true;
 
             TeleportInputHandlerTouch input = teleportInputHandlerTouch;
             input.InputMode = TeleportInputHandlerTouch.InputModes.ThumbstickTeleportForwardBackOnly;
