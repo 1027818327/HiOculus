@@ -116,36 +116,34 @@ namespace Quest
 
             Debug.DrawRay(transform.position, transform.forward, Color.red, 0.1f);
 
-            DistanceGrabbable target;
-            Collider targetColl;
-            FindTarget(out target, out targetColl);
-
-            if (target != m_target)
+            if (grabbedObject != null)
             {
-                if (m_target != null)
-                {
-                    m_target.Targeted = m_otherHand.m_target == m_target;
+                tipsTextMeshPro.text = "";
+            }
+            else 
+            {
+                DistanceGrabbable target;
+                Collider targetColl;
+                FindTarget(out target, out targetColl);
 
-                    if (m_target.Targeted && m_target.nameTextMesh != null)
-                    {
-                        tipsTextMeshPro.text = m_target.nameTextMesh.text;
-                    }
-                    else 
-                    {
-                        tipsTextMeshPro.text = "";
-                    }
-                }
-                if (m_target != null)
-                    m_target.ClearColor();
-                if (target != null)
-                    target.SetColor(m_focusColor);
-                m_target = target;
-                m_targetCollider = targetColl;
-                if (m_target != null)
+                if (target != m_target)
                 {
-                    m_target.Targeted = true;
+                    if (m_target != null)
+                    {
+                        m_target.Targeted = m_otherHand.m_target == m_target;
+                    }
+                    if (m_target != null)
+                        m_target.ClearColor();
+                    if (target != null)
+                        target.SetColor(m_focusColor);
+                    m_target = target;
+                    m_targetCollider = targetColl;
+                    if (m_target != null)
+                    {
+                        m_target.Targeted = true;
+                    }
 
-                    if (m_target.nameTextMesh != null) 
+                    if (m_target != null && m_target.nameTextMesh != null)
                     {
                         tipsTextMeshPro.text = m_target.nameTextMesh.text;
                     }
