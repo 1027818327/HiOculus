@@ -222,22 +222,6 @@ public class OVRGrabber : MonoBehaviour
     {
         if ((m_prevFlex >= grabBegin) && (prevFlex < grabBegin))
         {
-            /*
-            bool checkOtherKey = false;
-            if (m_controller == OVRInput.Controller.RTouch)
-            {
-                checkOtherKey = OVRInput.Get(OVRInput.Button.One) || OVRInput.Get(OVRInput.Button.Two) || OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger) || OVRInput.Get(OVRInput.RawTouch.RThumbstick);
-            }
-            else
-            {
-                checkOtherKey = OVRInput.Get(OVRInput.Button.Three) || OVRInput.Get(OVRInput.Button.Four) || OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.Get(OVRInput.Button.Start) || OVRInput.Get(OVRInput.RawTouch.LThumbstick);
-            }
-
-            if (checkOtherKey)
-            {
-                return;
-            }
-            */
             GrabBegin();
         }
         else if ((m_prevFlex <= grabEnd) && (prevFlex > grabEnd))
