@@ -205,6 +205,26 @@ namespace Quest
                 {
                     // Set up offsets for grabbed object desired position relative to hand.
                     m_grabbedObjectPosOff = m_gripTransform.localPosition;
+                    m_grabbedObjectRotOff = m_gripTransform.localRotation;
+
+                    Transform tempSnapOffset = null;
+                    if (m_controller == OVRInput.Controller.LTouch)
+                    {
+                        tempSnapOffset = m_grabbedObj.snapLeftOffset;
+                    }
+                    else if (m_controller == OVRInput.Controller.RTouch) 
+                    {
+                        tempSnapOffset = m_grabbedObj.snapOffset;
+                    }
+
+                    if (tempSnapOffset != null) 
+                    {
+                        m_grabbedObjectPosOff += tempSnapOffset.position;
+                        m_grabbedObjectRotOff = tempSnapOffset.rotation * m_grabbedObjectRotOff;
+                    }
+
+
+                    /*
                     if (m_grabbedObj.snapOffset)
                     {
                         Vector3 snapOffset = m_grabbedObj.snapOffset.position;
@@ -217,6 +237,7 @@ namespace Quest
                     {
                         m_grabbedObjectRotOff = m_grabbedObj.snapOffset.rotation * m_grabbedObjectRotOff;
                     }
+                    */
                 }
                 LogManager.instance.DebugLog("GrabBegin obj is " + m_grabbedObj.name);
             }
