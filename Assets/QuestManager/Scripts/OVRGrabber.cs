@@ -224,22 +224,6 @@ namespace Quest
         {
             if ((m_prevFlex >= grabBegin) && (prevFlex < grabBegin))
             {
-                /*
-                bool checkOtherKey = false;
-                if (m_controller == OVRInput.Controller.RTouch)
-                {
-                    checkOtherKey = OVRInput.Get(OVRInput.Button.One) || OVRInput.Get(OVRInput.Button.Two) || OVRInput.Get(OVRInput.Button.SecondaryIndexTrigger) || OVRInput.Get(OVRInput.RawTouch.RThumbstick);
-                }
-                else
-                {
-                    checkOtherKey = OVRInput.Get(OVRInput.Button.Three) || OVRInput.Get(OVRInput.Button.Four) || OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) || OVRInput.Get(OVRInput.Button.Start) || OVRInput.Get(OVRInput.RawTouch.LThumbstick);
-                }
-
-                if (checkOtherKey)
-                {
-                    return;
-                }
-                */
                 GrabBegin();
             }
             else if ((m_prevFlex <= grabEnd) && (prevFlex > grabEnd))
@@ -303,7 +287,7 @@ namespace Quest
                     {
                         if (m_grabbedObj.snapLeftOffset)
                         {
-                            Vector3 snapOffset = m_grabbedObj.snapLeftOffset.position;
+                            Vector3 snapOffset = m_grabbedObj.snapLeftOffset.localPosition;
                             m_grabbedObjectPosOff += snapOffset;
                         }
                     }
@@ -311,7 +295,7 @@ namespace Quest
                     {
                         if (m_grabbedObj.snapOffset)
                         {
-                            Vector3 snapOffset = m_grabbedObj.snapOffset.position;
+                            Vector3 snapOffset = m_grabbedObj.snapOffset.localPosition;
                             m_grabbedObjectPosOff += snapOffset;
                         }
                     }
@@ -341,14 +325,14 @@ namespace Quest
                     {
                         if (m_grabbedObj.snapLeftOffset)
                         {
-                            m_grabbedObjectRotOff = m_grabbedObj.snapLeftOffset.rotation * m_grabbedObjectRotOff;
+                            m_grabbedObjectRotOff = m_grabbedObj.snapLeftOffset.localRotation * m_grabbedObjectRotOff;
                         }
                     }
                     else if (m_controller == OVRInput.Controller.RTouch)
                     {
                         if (m_grabbedObj.snapOffset)
                         {
-                            m_grabbedObjectRotOff = m_grabbedObj.snapOffset.rotation * m_grabbedObjectRotOff;
+                            m_grabbedObjectRotOff = m_grabbedObj.snapOffset.localRotation * m_grabbedObjectRotOff;
                         }
                     }
 

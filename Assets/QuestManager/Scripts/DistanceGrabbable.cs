@@ -99,6 +99,32 @@ namespace Quest
             mOutline = GetComponent<Outline>();
         }
 
+        [ContextMenu("设置左右抓取点")]
+        private void SetLeftRightSnapPoint() 
+        {
+            m_snapPosition = true;
+            m_snapOrientation = true;
+
+            if (m_snapLeftOffset == null) 
+            {
+                GameObject go = new GameObject("SnapLeft");
+                go.transform.SetParent(transform);
+                go.transform.localPosition = Vector3.zero;
+                go.transform.localRotation = Quaternion.identity;
+                go.transform.localScale = Vector3.one;
+                m_snapLeftOffset = go.transform;
+            }
+            if (m_snapOffset == null) 
+            {
+                GameObject go = new GameObject("SnapRight");
+                go.transform.SetParent(transform);
+                go.transform.localPosition = Vector3.zero;
+                go.transform.localRotation = Quaternion.identity;
+                go.transform.localScale = Vector3.one;
+                m_snapOffset = go.transform;
+            }
+        }
+
         public override void GrabBegin(OVRGrabber hand, Collider grabPoint)
         {
             if (hand.grabbedObject == null || !hand.grabbedObject.allowOffhandGrab)

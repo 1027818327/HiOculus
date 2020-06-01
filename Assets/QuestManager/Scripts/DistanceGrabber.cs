@@ -219,10 +219,9 @@ namespace Quest
 
                     if (tempSnapOffset != null) 
                     {
-                        m_grabbedObjectPosOff += tempSnapOffset.position;
-                        m_grabbedObjectRotOff = tempSnapOffset.rotation * m_grabbedObjectRotOff;
+                        m_grabbedObjectPosOff += tempSnapOffset.localPosition;
+                        m_grabbedObjectRotOff = tempSnapOffset.localRotation * m_grabbedObjectRotOff;
                     }
-
 
                     /*
                     if (m_grabbedObj.snapOffset)
