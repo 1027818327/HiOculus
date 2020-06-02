@@ -114,7 +114,9 @@ namespace Quest
         {
             base.Update();
 
+#if UNITY_EDITOR
             Debug.DrawRay(transform.position, transform.forward, Color.red, 0.1f);
+#endif
 
             if (grabbedObject != null)
             {
@@ -132,6 +134,7 @@ namespace Quest
                     {
                         m_target.Targeted = m_otherHand.m_target == m_target;
                     }
+                    
                     if (m_target != null)
                         m_target.ClearColor();
                     if (target != null)
@@ -184,7 +187,7 @@ namespace Quest
 
                 m_grabbedObj = closestGrabbable;
                 m_grabbedObj.GrabBegin(this, closestGrabbableCollider);
-                SetPlayerIgnoreCollision(m_grabbedObj.gameObject, true);
+                //SetPlayerIgnoreCollision(m_grabbedObj.gameObject, true);
 
                 m_movingObjectToHand = true;
                 m_lastPos = transform.position;
@@ -274,8 +277,12 @@ namespace Quest
                     grabbableRotation = Quaternion.RotateTowards(m_grabbedObj.transform.rotation, grabbableRotation, m_objectPullMaxRotationRate * Time.deltaTime);
                 }
             }
-            grabbedRigidbody.MovePosition(grabbablePosition);
-            grabbedRigidbody.MoveRotation(grabbableRotation);
+
+            if (grabbedRigidbody != null) 
+            {
+                grabbedRigidbody.MovePosition(grabbablePosition);
+                grabbedRigidbody.MoveRotation(grabbableRotation);
+            }
         }
 
         static private DistanceGrabbable HitInfoToGrabbable(RaycastHit hitInfo)
@@ -300,7 +307,7 @@ namespace Quest
             foreach (OVRGrabbable cg in m_grabCandidates.Keys)
             {
                 DistanceGrabbable grabbable = cg as DistanceGrabbable;
-                bool canGrab = grabbable != null && grabbable.InRange && !grabbable.isGrabbed;// && grabbable.allowOffhandGrab;
+                bool canGrab = grabbable != null && grabbable.InRange && !(grabbable.isGrabbed && !grabbable.allowOffhandGrab);
                 if (canGrab && m_grabObjectsInLayer >= 0) canGrab = grabbable.gameObject.layer == m_grabObjectsInLayer;
                 if (!canGrab)
                 {
@@ -324,7 +331,9 @@ namespace Quest
                             ray.direction = grabbable.transform.position - m_gripTransform.position;
                             ray.origin = m_gripTransform.position;
                             RaycastHit obstructionHitInfo;
+#if UNITY_EDITOR
                             Debug.DrawRay(ray.origin, ray.direction, Color.red, 0.1f);
+#endif
 
                             if (Physics.Raycast(ray, out obstructionHitInfo, m_maxGrabDistance, 1 << m_obstructionLayer))
                             {

@@ -93,10 +93,13 @@ namespace Quest
             mOutline.enabled = false;
         }
 
+#if UNITY_EDITOR
         [ContextMenu("Set Component")]
         private void FindComponentInEditor()
         {
             mOutline = GetComponent<Outline>();
+
+            UnityEditor.EditorUtility.SetDirty(transform.root);
         }
 
         [ContextMenu("设置左右抓取点")]
@@ -123,7 +126,10 @@ namespace Quest
                 go.transform.localScale = Vector3.one;
                 m_snapOffset = go.transform;
             }
+
+            UnityEditor.EditorUtility.SetDirty(transform.root);
         }
+#endif
 
         public override void GrabBegin(OVRGrabber hand, Collider grabPoint)
         {
